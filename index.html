@@ -254,7 +254,6 @@ function render(){
   h+=tabsHtml(list);
   if(TAB==="stay"){
   var n=Math.round((Date.parse(D.o)-Date.parse(D.i))/864e5), multi=n>1;
-    h+='<div class="hero"><img src="'+LOGO+'" alt="명지각 1956"><h1>'+t("title")+'</h1><p>'+t("sub")+'</p></div>';
     h+='<div class="card room"><div class="nm">'+t("room")+'<b>'+D.r+'</b></div><div class="ci"><small>'+t("cin")+'</small><strong>16:00</strong><span>'+fmt(D.i)+'</span></div><div class="arr">→<em>'+t("nights").replace("{n}",n)+'</em></div><div class="ci"><small>'+t("cout")+'</small><strong>11:00</strong><span>'+fmt(D.o)+'</span></div></div>';
     // 련 / 한방
     if(D.h){h+='<div class="card hl"><div class="row">'+ico("heal")+'<div><h3>'+t("heal")+' <em>HEALING BATH</em></h3><p>'+t("healD")+'</p></div></div></div>'}
