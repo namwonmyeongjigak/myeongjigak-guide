@@ -21,7 +21,7 @@ a{color:inherit}
 .mini img{width:20px}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:12px;font-weight:600;background:#fff}
 .lang button{padding:6px 12px;color:var(--sub)} .lang button.on{background:var(--brand);color:#fff}
-.hero{text-align:center;padding:26px 0 20px}
+.hero{text-align:center;padding:22px 0 34px}
 .hero img{width:64px}
 .hero h1{font-size:20px;font-weight:700;margin-top:16px}
 .hero p{font-size:13px;color:var(--sub);margin-top:6px}
@@ -64,6 +64,29 @@ a{color:inherit}
 .sp.on rect{fill:#6C2B3D;stroke:#6C2B3D} .sp.on .k,.sp.on .l{fill:#fff} .sp.on .e{fill:#EBCFD6}
 .call{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:12px;background:var(--brand);color:#fff;font-weight:600;font-size:15px;text-decoration:none;margin-top:14px}
 .note{font-size:12px;color:var(--sub);text-align:center;margin-top:14px;line-height:1.6}
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;margin:0 -16px 14px;padding:10px 16px 0;background:var(--bg);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:1 0 auto;padding:10px 14px 9px;font-size:13.5px;font-weight:600;color:var(--sub);background:#F1EDE7;border:1px solid var(--line);border-bottom:0;border-radius:10px 10px 0 0;margin-bottom:-1px;white-space:nowrap}
+.tab.on{background:var(--card);color:var(--brand);border-color:var(--line);box-shadow:inset 0 3px 0 var(--brand)}
+.gcard{padding:20px 18px}
+.gt{font-size:17px;font-weight:700;line-height:1.4}
+.tools{display:flex;gap:22px;margin:16px 0 4px}
+.tool{display:flex;flex-direction:column;align-items:center;gap:6px;color:#4A4642;font-size:12px;font-weight:600;text-align:center;line-height:1.35}
+.tool svg{width:48px;height:40px}
+.steps{list-style:none;margin-top:14px}
+.steps li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.65;color:#3E3A36}
+.steps li:first-child{border-top:0}
+.steps .no{flex:0 0 22px;height:22px;border-radius:50%;background:var(--brand-soft);color:var(--brand);font-size:12px;font-weight:700;display:grid;place-items:center;margin-top:1px}
+.steps small{display:block;font-size:12.5px;color:var(--sub);margin-top:4px}
+.rules{list-style:none;margin-top:10px}
+.rules li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.rules li:first-child{border-top:0}
+.rules .ri{flex:0 0 32px;height:32px;border-radius:9px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
+.rules .ri svg{width:17px;height:17px}
+.rules p{font-size:13.5px;line-height:1.65;color:#3E3A36}
+.expired{text-align:center;font-size:12.5px;color:var(--sub);margin:-6px 0 14px;line-height:1.6}
+.share{display:block;width:100%;height:46px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:14px;font-weight:600;color:var(--brand);margin-top:14px}
+.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:rgba(43,42,40,.9);color:#fff;font-size:13px;padding:10px 16px;border-radius:999px;z-index:20}
 .empty{text-align:center;padding:80px 10px}
 .empty img{width:80px} .empty h2{font-size:18px;margin-top:24px} .empty p{font-size:13px;color:var(--sub);margin-top:8px;line-height:1.6}
 
@@ -90,6 +113,8 @@ var T={
   cafe:"사랑채 카페",cafeD:"11:00 – 20:00<br>숙박객 음료 20% 할인",lounge:"안사랑채 라운지",loungeD:"24시간 이용<br>웰컴티·전자레인지·정수기",
   quiet:"매너타임",quietD:"22:00 이후에는 다른 객실의 숙면을 위해 소음에 주의해 주세요.",
   swipe:"← 옆으로 밀어서 보기 →",mapH:"명지각 배치도",backGate:"후문",mainGate:"정문",anHrs:"24시간 라운지",saHrs:"카페 11:00–20:00 · 조식",you:"내 객실",
+  guideTitle:"객실 이용 안내",guideSub:"명지각에서 머무시는 동안 필요한 안내를 모았어요.",noteG:"궁금한 점은 언제든 리셉션에 문의해 주세요.<br>야간 비상 문의는 전화만 가능해요.",
+  share:"일행에게 보내기",copied:"링크를 복사했어요. 카톡이나 문자에 붙여넣어 보내주세요.",
   call:"리셉션에 전화하기",note:"체크인 때 안내드린 내용이에요. 변경 사항은 리셉션에 문의해 주세요.<br>야간 비상 문의는 전화만 가능해요.",
   expH:"이용이 끝난 안내예요",expP:"명지각을 찾아주셔서 감사합니다.<br>다음에 또 뵙기를 기다릴게요.",badH:"안내 정보를 찾을 수 없어요",badP:"QR을 다시 찍어 주시거나 리셉션에 문의해 주세요.",
   wd:["일","월","화","수","목","금","토"]},
@@ -101,6 +126,8 @@ var T={
   cafe:"Sarang-chae Café",cafeD:"11:00 – 20:00<br>20% off drinks for guests",lounge:"Ansarang-chae Lounge",loungeD:"Open 24 hours<br>Welcome tea · microwave · water",
   quiet:"Quiet hours",quietD:"From 22:00, please keep noise low for other guests.",
   swipe:"← Swipe to see more →",mapH:"Site map",backGate:"Back Gate",mainGate:"Main Gate",anHrs:"24h lounge",saHrs:"Café 11:00–20:00 · Breakfast",you:"Your room",
+  guideTitle:"Room Guide",guideSub:"Everything you need during your stay at Myeongjigak.",noteG:"Please contact reception anytime if you have questions.<br>Phone only for late-night emergencies. (WhatsApp available)",
+  share:"Send to your companions",copied:"Link copied. Paste it into a message to share.",
   call:"Call reception",note:"This is what we shared at check-in. For any changes, please contact reception.<br>Phone only for late-night emergencies. (WhatsApp available)",
   expH:"This stay has ended",expP:"Thank you for staying at Myeongjigak.<br>We hope to see you again.",badH:"We couldn't find your stay",badP:"Please scan the QR again or ask at reception.",
   wd:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]}
@@ -113,9 +140,22 @@ function $(s){return document.querySelector(s)} function $$(s){return document.q
  * {r:객실, i:체크인일, n:박수, h:한방블렌딩(1), l:언어,
  *  y:[[체크인일+며칠, "1700"(련 시작), 익일오전(1)]],
  *  b:[[체크인일+며칠(조식일), "830"(시간, 없으면 미이용), "rnyb..."(메뉴코드 한 글자씩)]]} */
-function decode(){
+// 휴대폰 저장: 체크인 QR로 한 번 열면 기억해 두었다가, 객실 QR(주소만)로 열어도 투숙 안내를 보여줌
+var KEY="mjg_stay";
+function store(v){try{if(v)localStorage.setItem(KEY,v);else localStorage.removeItem(KEY)}catch(e){}}
+function stored(){try{return localStorage.getItem(KEY)||""}catch(e){return ""}}
+var RAW="";
+function load(){
+  var h=location.hash.slice(1), o=h?decode(h):null;
+  if(o){RAW=h;if(todayKST()<=o.o)store(h);return o}
+  var s=stored();if(!s)return null;
+  o=decode(s);
+  if(!o||todayKST()>o.o){store("");return null}
+  RAW=s;return o;
+}
+function decode(s){
   try{
-    var s=location.hash.slice(1); if(!s) return null;
+    if(!s) return null;
     s=s.replace(/-/g,"+").replace(/_/g,"/"); while(s.length%4)s+="=";
     var bin=atob(s),bytes=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
     var o=JSON.parse(new TextDecoder().decode(bytes));
@@ -147,35 +187,98 @@ var PIN='<span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentC
 
 function topBar(){return '<div class="top"><div class="lang"><button data-l="ko" class="'+(lang==="ko"?"on":"")+'">KO</button><button data-l="en" class="'+(lang==="en"?"on":"")+'">EN</button></div></div>'}
 
+/* ───── 객실 이용 안내 (책갈피 탭) ───── */
+var GUIDE={
+ ko:{
+  tea:{title:"꽃차",tools:[["pot","다관"],["cup","숙우"]],steps:[
+   "차함에 담겨 있는 꽃을 2~3개 집어 다관에 넣어주세요.<small>다량의 꽃을 한꺼번에 우리면 쓴맛이 강해질 수 있으니 주의해 주세요.</small>",
+   "끓인 물을 다관에 조금 부어 꽃을 적신 후 첫물은 버리고, 다시 뜨거운 물을 부어 2–3분 우려주세요.",
+   "우린 차를 숙우에 붓고, 다관에는 다시 뜨거운 물을 부어주세요. 차는 1–2번 더 우릴 수 있습니다.",
+   "숙우에 담긴 차를 잔에 따라 드세요."]},
+  spk:{title:"REVO SuperSignal 스피커 블루투스 연결 방법",steps:[
+   "정면부 <b>MODE</b> 버튼으로 블루투스 모드를 설정합니다.",
+   "휴대폰 블루투스 설정 화면에서 <b>SuperSignal</b> 스피커와 연결합니다.",
+   "스피커 상부의 큰 다이얼을 돌려 볼륨을 조절할 수 있습니다.<small>지나친 소음은 다른 투숙객의 휴식에 불편을 줄 수 있으니 주의 부탁드립니다.</small>"]},
+  rules:{title:"유의사항",items:[
+   ["clock","오전 8시 이전에 체크아웃을 원하실 경우, 아래 번호로 미리 연락 바랍니다."],
+   ["people","예약 인원 외 외부 인원은 출입이 어렵습니다. 이를 위반할 경우 발생하는 모든 책임은 예약자에게 있음을 안내드립니다."],
+   ["cctv","손님의 안전을 위해 CCTV가 처마 아래에 설치되어 있습니다."],
+   ["child","유아 및 아동을 동반하신 경우, 안전사고가 발생하지 않도록 지속적인 관심과 주의를 부탁드립니다."],
+   ["smoke","숙소 내 전 구역은 절대 금연입니다. 흡연은 대문 밖에서 부탁드립니다."],
+   ["bug","방역업체와의 계약을 통해 매달 내외부 소독 작업을 하고 있습니다. 다만, 주변 환경 특성상 벌레가 유입될 수 있습니다. 모든 문을 잘 닫아주시고, 방충망을 사용해 주세요."]]}},
+ en:{
+  tea:{title:"Flower Tea Guide",tools:[["pot","Teapot<br>(Dagwan)"],["cup","Cooling Pitcher<br>(Sugu)"]],steps:[
+   "Please place 2–3 flowers from the tea box into the teapot.<small>Adding too many flowers at once may result in a strong, bitter taste.</small>",
+   "Pour a small amount of hot water into the teapot to rinse the flowers, then discard the first brew. Refill the teapot with hot water and steep for 2–3 minutes.",
+   "Pour the tea into the cooling pitcher, then refill the teapot with hot water. The flowers may be steeped 1–2 more times.",
+   "Finally, pour the tea from the cooling pitcher into cups and enjoy."]},
+  spk:{title:"Bluetooth Speaker Guide (REVO SuperSignal)",steps:[
+   "Set the speaker to Bluetooth mode using the <b>MODE</b> button on the front panel.",
+   "In your phone's Bluetooth settings, connect to the <b>SuperSignal</b> speaker.",
+   "Turn the large dial on top of the speaker to adjust the volume.<small>Please be mindful that excessive volume may disturb other guests' rest.</small>"]},
+  rules:{title:"House Rules",items:[
+   ["clock","If you plan to check out before 8:00 AM, kindly contact the number below in advance."],
+   ["people","Only registered guests are allowed on the premises. The reservation holder is fully responsible for any issues arising from a violation of this rule."],
+   ["cctv","For your safety, CCTV cameras are installed under the eaves."],
+   ["child","Guests with infants or young children are kindly asked to keep a close watch at all times to prevent accidents."],
+   ["smoke","Smoking is strictly prohibited in all areas of the property. Please smoke only outside the main gate."],
+   ["bug","The interior and exterior are disinfected monthly by a professional pest control company. However, due to the surrounding natural environment, insects may occasionally come in. Please keep all doors closed and use the insect screens."]]}}
+};
+var GICON={
+ pot:'<svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9h10M22 9V6h6v3M12 19c0-6 5-9 13-9s13 3 13 9c0 9-5 15-13 15S12 28 12 19z"/><path d="M38 17c4 0 6 2 6 5s-2 5-5 5M12 18l-6-5"/></svg>',
+ cup:'<svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h28l-3 30H15L12 10l-4-2"/></svg>',
+ clock:'<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>',
+ people:'<circle cx="9" cy="9" r="3"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5M16 7a3 3 0 010 6M18 14c2 .5 3 2 3 5"/>',
+ cctv:'<path d="M3 7l13-3 2 6-13 3zM9 12l1 4M5 19h6v-3M18 8l3-1"/>',
+ child:'<circle cx="12" cy="6" r="2.5"/><path d="M12 9v6M8 12h8M10 21l2-6 2 6"/>',
+ smoke:'<path d="M3 15h14v3H3zM19 15v3M21 15v3M17 11c0-2 2-2 2-4M20 11c0-2 2-2 2-4M4 4l16 16"/>',
+ bug:'<path d="M8 8a4 4 0 018 0M7 10h10v4a5 5 0 01-10 0zM12 10v9M4 12h3M17 12h3M5 18l2.5-2M19 18l-2.5-2M6 6l2 2M18 6l-2 2"/>'
+};
+var TABS_KO={stay:"투숙 안내",tea:"다도",spk:"스피커",rules:"유의사항"}, TABS_EN={stay:"My Stay",tea:"Tea",spk:"Speaker",rules:"House Rules"};
+var TAB=null;
+function tabsHtml(list){var L=lang==="ko"?TABS_KO:TABS_EN;
+  return '<div class="tabs" id="tabs">'+list.map(function(k){return '<button class="tab'+(TAB===k?" on":"")+'" onclick="setTab(\''+k+'\')">'+L[k]+'</button>'}).join("")+'</div>'}
+function setTab(k){TAB=k;FOCUS=null;render();var tb=$("#tabs");if(tb&&window.scrollY>tb.offsetTop)window.scrollTo({top:tb.offsetTop-8})}
+function stepsHtml(steps){return '<ol class="steps">'+steps.map(function(s,i){return '<li><span class="no">'+(i+1)+'</span><div>'+s.replace("<small>","<small>")+'</div></li>'}).join("")+'</ol>'}
+function guideHtml(k){var g=GUIDE[lang][k],h='<div class="card gcard"><h2 class="gt">'+g.title+'</h2>';
+  if(g.tools)h+='<div class="tools">'+g.tools.map(function(x){return '<div class="tool">'+GICON[x[0]]+'<span>'+x[1]+'</span></div>'}).join("")+'</div>';
+  if(g.steps)h+=stepsHtml(g.steps);
+  if(g.items)h+='<ul class="rules">'+g.items.map(function(x){return '<li><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'+GICON[x[0]]+'</svg></span><p>'+x[1]+'</p></li>'}).join("")+'</ul>';
+  return h+'</div>'}
+
 function render(){
-  var h=topBar();
-  if(!D){$("#app").innerHTML=h+'<div class="empty"><img src="'+LOGO+'" alt=""><h2>'+t("badH")+'</h2><p>'+t("badP")+'</p></div>';return}
-  if(todayKST()>D.o){$("#app").innerHTML=h+'<div class="empty"><img src="'+LOGO+'" alt=""><h2>'+t("expH")+'</h2><p>'+t("expP")+'</p></div>';return}
+  var h=topBar(), hasStay=!!D&&todayKST()<=D.o, list=(hasStay?["stay"]:[]).concat(["tea","spk","rules"]);
+  if(!TAB||list.indexOf(TAB)<0)TAB=list[0];
+  h+='<div class="hero"><img src="'+LOGO+'" alt="명지각 1956"></div>';
+  if(D&&!hasStay)h+='<p class="expired">'+t("expP")+'</p>';
+  h+=tabsHtml(list);
+  if(TAB==="stay"){
   var n=Math.round((Date.parse(D.o)-Date.parse(D.i))/864e5), multi=n>1;
-  h+='<div class="hero"><img src="'+LOGO+'" alt="명지각 1956"><h1>'+t("title")+'</h1><p>'+t("sub")+'</p></div>';
-  h+='<div class="card room"><div class="nm">'+t("room")+'<b>'+D.r+'</b></div><div class="ci"><small>'+t("cin")+'</small><strong>16:00</strong><span>'+fmt(D.i)+'</span></div><div class="arr">→<em>'+t("nights").replace("{n}",n)+'</em></div><div class="ci"><small>'+t("cout")+'</small><strong>11:00</strong><span>'+fmt(D.o)+'</span></div></div>';
-  // 련 / 한방
-  if(D.h){h+='<div class="card hl"><div class="row">'+ico("heal")+'<div><h3>'+t("heal")+' <em>HEALING BATH</em></h3><p>'+t("healD")+'</p></div></div></div>'}
-  else{
-    var rl=(D.y||[]).map(function(y){var am=!!y[2];var lab=multi?'<small>'+fmt(y[0])+'</small>':'';return '<div class="big">'+lab+(!multi&&am?'<span class="am">'+t("nextAm")+'</span> ':'')+y[1]+'</div>'}).join("");
-    h+='<div class="card hl tap" data-sp="ryeon" onclick="focusSpace(\'ryeon\')">'+PIN+'<div class="row">'+ico("ryeon")+'<div><h3>'+t("ryeon")+' <em>RYEON</em></h3>'+(rl||'<p>'+t("ryeonNone")+'</p>')+(rl?'<p>'+t("ryeonD")+'</p>':'')+'</div></div></div>';
-  }
-  // 조식
-  if(D.b&&D.b.length){
-    var bl=D.b.map(function(b){var dd=t("morning").replace("{d}",fmt(b[0]));
-      if(!b[1])return '<div class="bf-day"><div class="d">'+dd+'</div><ul><li>'+t("noBf")+'</li></ul></div>';
-      return '<div class="bf-day"><div class="d">'+dd+'</div><div class="tm">'+slotTxt(b[1])+'</div><ul>'+(b[2]||[]).map(function(c,i){return '<li>'+t("guest")+' '+(i+1)+' · '+menu(c)+'</li>'}).join("")+'</ul></div>'}).join("");
-    h+='<div class="card tap" data-sp="sarang" onclick="focusSpace(\'sarang\')">'+PIN+'<div class="row">'+ico("bf")+'<div style="flex:1"><h3>'+t("bf")+' <em>'+t("bfD")+'</em></h3><div class="bf">'+bl+'</div></div></div></div>';
-  }
-  h+='<div class="grid2">'+
-    '<div class="card tap" data-sp="sarang" onclick="focusSpace(\'sarang\')">'+PIN+'<div class="row">'+ico("cafe")+'<div><h3>'+t("cafe")+'</h3><p>'+t("cafeD")+'</p></div></div></div>'+
-    '<div class="card tap" data-sp="an" onclick="focusSpace(\'an\')">'+PIN+'<div class="row">'+ico("lounge")+'<div><h3>'+t("lounge")+'</h3><p>'+t("loungeD")+'</p></div></div></div></div>';
-  h+='<div class="card"><div class="row">'+ico("quiet")+'<div><h3>'+t("quiet")+'</h3><p>'+t("quietD")+'</p></div></div></div>';
-  h+='<div class="card map"><p class="label">'+t("mapH")+'</p><div id="map">'+mapSvg()+'</div><p class="swipe">'+t("swipe")+'</p></div>';
-  h+='<a class="call" href="tel:'+PHONE+'">'+t("call")+' · 010-9677-9490</a><p class="note">'+t("note")+'</p>';
+    h+='<div class="hero"><img src="'+LOGO+'" alt="명지각 1956"><h1>'+t("title")+'</h1><p>'+t("sub")+'</p></div>';
+    h+='<div class="card room"><div class="nm">'+t("room")+'<b>'+D.r+'</b></div><div class="ci"><small>'+t("cin")+'</small><strong>16:00</strong><span>'+fmt(D.i)+'</span></div><div class="arr">→<em>'+t("nights").replace("{n}",n)+'</em></div><div class="ci"><small>'+t("cout")+'</small><strong>11:00</strong><span>'+fmt(D.o)+'</span></div></div>';
+    // 련 / 한방
+    if(D.h){h+='<div class="card hl"><div class="row">'+ico("heal")+'<div><h3>'+t("heal")+' <em>HEALING BATH</em></h3><p>'+t("healD")+'</p></div></div></div>'}
+    else{
+      var rl=(D.y||[]).map(function(y){var am=!!y[2];var lab=multi?'<small>'+fmt(y[0])+'</small>':'';return '<div class="big">'+lab+(!multi&&am?'<span class="am">'+t("nextAm")+'</span> ':'')+y[1]+'</div>'}).join("");
+      h+='<div class="card hl tap" data-sp="ryeon" onclick="focusSpace(\'ryeon\')">'+PIN+'<div class="row">'+ico("ryeon")+'<div><h3>'+t("ryeon")+' <em>RYEON</em></h3>'+(rl||'<p>'+t("ryeonNone")+'</p>')+(rl?'<p>'+t("ryeonD")+'</p>':'')+'</div></div></div>';
+    }
+    // 조식
+    if(D.b&&D.b.length){
+      var bl=D.b.map(function(b){var dd=t("morning").replace("{d}",fmt(b[0]));
+        if(!b[1])return '<div class="bf-day"><div class="d">'+dd+'</div><ul><li>'+t("noBf")+'</li></ul></div>';
+        return '<div class="bf-day"><div class="d">'+dd+'</div><div class="tm">'+slotTxt(b[1])+'</div><ul>'+(b[2]||[]).map(function(c,i){return '<li>'+t("guest")+' '+(i+1)+' · '+menu(c)+'</li>'}).join("")+'</ul></div>'}).join("");
+      h+='<div class="card tap" data-sp="sarang" onclick="focusSpace(\'sarang\')">'+PIN+'<div class="row">'+ico("bf")+'<div style="flex:1"><h3>'+t("bf")+' <em>'+t("bfD")+'</em></h3><div class="bf">'+bl+'</div></div></div></div>';
+    }
+    h+='<div class="grid2">'+
+      '<div class="card tap" data-sp="sarang" onclick="focusSpace(\'sarang\')">'+PIN+'<div class="row">'+ico("cafe")+'<div><h3>'+t("cafe")+'</h3><p>'+t("cafeD")+'</p></div></div></div>'+
+      '<div class="card tap" data-sp="an" onclick="focusSpace(\'an\')">'+PIN+'<div class="row">'+ico("lounge")+'<div><h3>'+t("lounge")+'</h3><p>'+t("loungeD")+'</p></div></div></div></div>';
+    h+='<div class="card"><div class="row">'+ico("quiet")+'<div><h3>'+t("quiet")+'</h3><p>'+t("quietD")+'</p></div></div></div>';
+    h+='<div class="card map"><p class="label">'+t("mapH")+'</p><div id="map">'+mapSvg()+'</div><p class="swipe">'+t("swipe")+'</p></div>';
+    h+='<button class="share" onclick="share()">'+t("share")+'</button>';
+  } else h+=guideHtml(TAB);
+  h+='<a class="call" href="tel:'+PHONE+'">'+t("call")+' · 010-9677-9490</a>';
   $("#app").innerHTML=h;
-  applyFocus();
-  scrollMapTo(D.h||D.r==="명1"?0.55:0.1);
+  if(TAB==="stay"){applyFocus();scrollMapTo(D.h||D.r==="명1"?0.55:0.1);}
 }
 
 function mapSvg(){
@@ -205,6 +308,12 @@ function mapSvg(){
   s+=gate(440,490,34,t("backGate"),false)+gate(240,292,366,t("mainGate"),true);
   return s+'</svg>';
 }
+function share(){
+  var url=location.origin+location.pathname+"#"+RAW;
+  if(navigator.share){navigator.share({title:lang==="ko"?"명지각 투숙 안내":"Myeongjigak · Your stay",url:url}).catch(function(){});return}
+  try{navigator.clipboard.writeText(url).then(toast,function(){prompt("",url)})}catch(e){prompt("",url)}
+}
+function toast(){var d=document.createElement("div");d.className="toast";d.textContent=t("copied");document.body.appendChild(d);setTimeout(function(){d.remove()},2600)}
 function scrollMapTo(fr){var m=$("#map");if(m)m.scrollLeft=Math.max(0,(m.scrollWidth-m.clientWidth)*fr)}
 var SPX={ryeon:1,an:0.75,sarang:0.2};
 function focusSpace(k){FOCUS=FOCUS===k?null:k;applyFocus();if(FOCUS){var m=$("#map");if(m)m.scrollTo({left:(m.scrollWidth-m.clientWidth)*SPX[FOCUS],behavior:"smooth"})}
@@ -212,8 +321,10 @@ function focusSpace(k){FOCUS=FOCUS===k?null:k;applyFocus();if(FOCUS){var m=$("#m
 function applyFocus(){$$("[data-sp]").forEach(function(el){el.classList.toggle("on",el.getAttribute("data-sp")===FOCUS)})}
 
 document.addEventListener("click",function(e){var b=e.target.closest(".lang button");if(b){lang=b.dataset.l;render()}});
-window.addEventListener("hashchange",function(){D=decode();render()});
-D=decode();
+window.addEventListener("hashchange",function(){D=load();TAB=null;render()});
+// 객실에 붙이는 QR용: 주소 끝에 ?tab=tea / spk / rules 를 붙이면 그 탭으로 열림
+(function(){var m=location.search.match(/[?&]tab=(\w+)/);if(m)TAB=m[1]})();
+D=load();
 lang=(D&&D.l)||((navigator.language||"ko").toLowerCase().indexOf("ko")===0?"ko":"en");
 render();
 </script>
