@@ -90,6 +90,7 @@ a{color:inherit}
 .rules p{font-size:13.5px;line-height:1.65;color:#3E3A36}
 .expired{text-align:center;font-size:12.5px;color:var(--sub);margin:-6px 0 14px;line-height:1.6}
 .hrs{text-align:center;font-size:12px;font-weight:600;color:var(--brand);margin-top:8px}
+.herbs{font-size:12.5px;color:var(--brand);font-weight:600;letter-spacing:.02em}
 .rg-btn{margin-top:10px;font-size:12.5px;font-weight:700;color:var(--brand);background:#fff;border:1px solid #E2D3D8;border-radius:999px;padding:7px 14px}
 .rg{display:none;margin-top:14px;padding-top:4px;border-top:1px solid rgba(108,43,61,.15)}
 .rg.on{display:block}
@@ -122,7 +123,7 @@ var PHONE="+821096779490";
 var T={
  ko:{title:"나의 투숙 안내",sub:"머무시는 동안 언제든 다시 확인하실 수 있어요.",room:"객실",cin:"체크인",cout:"체크아웃",nights:"{n}박",
   ryeon:"목욕장 련",ryeonD:"사우나·쑥차·옷걸이·화장실이 준비되어 있어요. 예약하신 시간에 맞춰 련으로 와주세요.",ryeonNone:"예약된 련 시간이 없어요. 이용을 원하시면 리셉션에 문의해 주세요.",nextAm:"(익일 오전)",
-  heal:"한방 블렌딩",healD:"객실에 당귀·참쑥·진피·박하 네 가지 한방 재료와 바스솔트가 준비되어 있어요.",
+  heal:"한방 입욕 블렌딩",herbs:"당귀 / 진피 / 참쑥 / 박하",healD:"객실에 네 가지 한방 약재와 바스솔트가 준비되어 있어요. 나만의 조합으로 향기로운 입욕을 즐겨보세요.",hgOpen:"사용 방법 보기 ▾",hgClose:"사용 방법 접기 ▴",
   bf:"조식",bfD:"사랑채에서 제공돼요.",morning:"{d} 아침",noBf:"이용 안 함",
   gom:"곰탕",bib:"비빔밥",rice:"밥",noodle:"쌀국수",cilY:"고수 포함",cilN:"고수 빼고",vegan:"채식",none:"안 먹어요",guest:"게스트",
   cafe:"사랑채 카페",cafeD:"11:00 – 20:00<br>숙박객 음료 20% 할인",lounge:"안사랑채 라운지",loungeD:"24시간 이용<br>웰컴티·전자레인지·정수기",
@@ -137,7 +138,7 @@ var T={
   wd:["일","월","화","수","목","금","토"]},
  en:{title:"Your stay",sub:"Come back to this page anytime during your stay.",room:"Room",cin:"Check-in",cout:"Check-out",nights:"{n} night(s)",
   ryeon:"RYEON",ryeonD:"Private bathhouse — your own personal onsen. Sauna, mugwort tea, hangers and restroom provided.",ryeonNone:"No Ryeon time is booked. Please ask at reception if you'd like to use it.",nextAm:"(Next morning)",
-  heal:"Healing Bath",healD:"Bath salts and four herbs — angelica, mugwort, citrus peel and peppermint — are prepared in your room.",
+  heal:"Herbal Bath Blend",herbs:"Angelica Root / Tangerine Peel / Mugwort / Mint",healD:"Four traditional herbs and bath salts are prepared in your room. Create your own blend for a fragrant herbal soak.",hgOpen:"How to use ▾",hgClose:"Hide ▴",
   bf:"Breakfast",bfD:"Served at Sarang-chae.",morning:"{d} morning",noBf:"Not having",
   gom:"Gom-tang",bib:"Bibim-bap",rice:"rice",noodle:"rice noodles",cilY:"with cilantro",cilN:"no cilantro",vegan:"vegan",none:"Skip",guest:"Guest",
   cafe:"Sarang-chae Café",cafeD:"11:00 – 20:00<br>20% off drinks for guests",lounge:"Ansarang-chae Lounge",loungeD:"Open 24 hours<br>Welcome tea · microwave · water",
@@ -279,7 +280,7 @@ function render(){
   var n=Math.round((Date.parse(D.o)-Date.parse(D.i))/864e5), multi=n>1;
     h+='<div class="card room"><div class="nm">'+t("room")+'<b>'+D.r+'</b></div><div class="ci"><small>'+t("cin")+'</small><strong>16:00</strong><span>'+fmt(D.i)+'</span></div><div class="arr">→<em>'+t("nights").replace("{n}",n)+'</em></div><div class="ci"><small>'+t("cout")+'</small><strong>11:00</strong><span>'+fmt(D.o)+'</span></div></div>';
     // 련 / 한방
-    if(D.h){h+='<div class="card hl"><div class="row">'+ico("heal")+'<div><h3>'+t("heal")+' <em>HEALING BATH</em></h3><p>'+t("healD")+'</p></div></div></div>'}
+    if(D.h){h+='<div class="card hl"><div class="row">'+ico("heal")+'<div><h3>'+t("heal")+' <em>HERBAL BATH BLEND</em></h3><p class="herbs">'+t("herbs")+'</p><p>'+t("healD")+'</p><button class="rg-btn" onclick="toggleHG(this)">'+t("hgOpen")+'</button></div></div><div class="rg" id="hg">'+healGuide()+'</div></div>'}
     else{
       var rl=(D.y||[]).map(function(y){var am=!!y[2];var lab=multi?'<small>'+fmt(y[0])+'</small>':'';return '<div class="big">'+lab+(!multi&&am?'<span class="am">'+t("nextAm")+'</span> ':'')+y[1]+'</div>'}).join("");
       h+='<div class="card hl tap" data-sp="ryeon" onclick="focusSpace(\'ryeon\')">'+PIN+'<div class="row">'+ico("ryeon")+'<div><h3>'+t("ryeon")+' <em>RYEON</em></h3>'+(rl||'<p>'+t("ryeonNone")+'</p>')+(rl?'<p>'+t("ryeonD")+'</p><button class="rg-btn" onclick="event.stopPropagation();toggleRG(this)">'+t("rgOpen")+'</button>':'')+'</div></div>'+(rl?'<div class="rg" id="rg" onclick="event.stopPropagation()">'+ryeonGuides()+'</div>':'')+'</div>';
@@ -325,7 +326,10 @@ function mapSvg(){
   s+='<text x="300" y="186" text-anchor="middle" font-size="10" letter-spacing="3" fill="#B9B2A8">'+(lang==="ko"?"마당":"COURTYARD")+'</text>';
   s+=room("지4",44,54,88,64)+room("지5",44,118,88,64)+room("지6",44,182,88,64);
   s+=room("지3",152,54,96,58)+room("지2",248,54,96,58)+room("명1",344,54,124,58);
-  s+=space("ryeon",560,54,96,130,"련","RYEON",["17:00–22:20","07:30–10:40"]);
+  // 련: 이 고객의 예약 시간만 표시 (없으면 시간 없이)
+  var rt=(D.h?[]:(D.y||[]).map(function(y){return y[1].replace(/\s*–\s*/,"–")}));
+  if(rt.length>3)rt=rt.slice(0,2).concat(["+"+(rt.length-2)]);
+  s+=space("ryeon",560,54,96,130,"련","RYEON",rt);
   s+=space("an",396,212,200,64,"안사랑채","ANSARANG",[t("anHrs")]);
   s+=space("sarang",112,276,250,74,"사랑채","SARANG",[t("saHrs")]);
   s+=gate(440,490,34,t("backGate"),false)+gate(240,292,366,t("mainGate"),true);
@@ -370,6 +374,14 @@ function ryeonGuides(){
   var tag=groups.length>1;
   return groups.map(function(gr){return '<div class="rg-blk">'+(tag?'<span class="rg-when">'+gr[0].join(" · ")+'</span>':'')+g.base.concat(gr[1]).map(rgSection).join("")+'</div>'}).join("");
 }
+/* ───── 명1 한방 입욕 블렌딩 사용 방법 ───── */
+var HG={
+ ko:["약재를 원하는 조합으로 삼베주머니에 담아 주세요.","주머니를 그릇에 담고, 끓인 물을 조금씩 부어 약재를 먼저 충분히 적셔 주세요.","주머니를 욕조에 담그고, 나만의 한방 입욕을 즐겨보세요.","!천연 약재 성분(국화과, 시트러스, 멘톨 등)은 체질에 따라 알레르기 반응이 나타날 수 있으니, 사용 전 가볍게 테스트해 보시길 권장합니다."],
+ en:["Fill the hemp pouch with your choice of herbs.","Place the pouch in a bowl and slowly pour hot water over it to soak the herbs.","Drop the pouch into the bath and enjoy your own herbal soak.","!Natural herbal ingredients (Asteraceae, citrus, menthol, etc.) may cause allergic reactions depending on the individual. We recommend a patch test before use."]
+};
+function healGuide(){var L=HG[lang],steps=L.filter(function(x){return x.charAt(0)!=="!"}),w=L.filter(function(x){return x.charAt(0)==="!"});
+  return '<ol>'+steps.map(function(x){return '<li>'+x+'</li>'}).join("")+'</ol>'+w.map(function(x){return '<ul><li class="warn">⚠️ '+x.slice(1)+'</li></ul>'}).join("")}
+function toggleHG(btn){var el=$("#hg");var on=!el.classList.contains("on");el.classList.toggle("on",on);btn.textContent=t(on?"hgClose":"hgOpen")}
 function toggleRG(btn){var el=$("#rg");var on=!el.classList.contains("on");el.classList.toggle("on",on);btn.textContent=t(on?"rgClose":"rgOpen")}
 function share(){
   var url=location.origin+location.pathname+"#"+RAW;
