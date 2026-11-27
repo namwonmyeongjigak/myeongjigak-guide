@@ -141,7 +141,7 @@ var T={
   swipe:"← 옆으로 밀어서 보기 →",mapH:"명지각 배치도",backGate:"후문",mainGate:"정문",anHrs:"24시간 라운지",saHrs:"카페 11:00–20:00 · 조식",you:"내 객실",
   guideTitle:"객실 이용 안내",guideSub:"명지각에서 머무시는 동안 필요한 안내를 모았어요.",noteG:"궁금한 점은 언제든 리셉션에 문의해 주세요.<br>야간 비상 문의는 전화만 가능해요.",
   night:"21시 이후 출입 안내",nightD:"21시 이후에는 사랑채 출입문이 잠깁니다. 사랑채 옆 샛길 또는 후문을 이용해 주세요.",nightPath:"샛길",
-  hrs:"일반문의 08:00 – 21:00 · 비상문의 24시간",laterT:"문자로 예약 예정",laterP:"{d} 19:00까지 010-9677-9490으로 문자 주시면 예약해 드려요.",menuOpen:"메뉴 보기 ▾",menuOpenL:"메뉴 사진 · 옵션 보기 ▾",menuClose:"메뉴 접기 ▴",rgOpen:"이용 안내 보기 ▾",rgClose:"이용 안내 접기 ▴",
+  hrs:"일반문의 08:00 – 21:00 · 비상문의 24시간",laterT:"문자로 예약 예정",laterP:"{d} 19:00까지 010-9677-9490으로 문자 주시면 예약해 드려요.",uH:"셀프 체크인 안내",uD:"오후 9시 이후에는 직원이 상주하지 않아 사랑채 문이 잠겨요. 아래 순서대로 셀프 체크인해 주세요.",u1:"<b>사랑채 옆 샛길</b>로 들어와 주세요.",uMap:"지도에서 샛길 보기",u2:"<b>{r}</b> 객실 문 손잡이에 <b>카드키 주머니</b>가 걸려 있어요.",u3:"내일 아침 조식은 <b>오늘 20:00까지</b> 010-9677-9490으로 문자로 알려 주세요.",menuOpen:"메뉴 보기 ▾",menuOpenL:"메뉴 사진 · 옵션 보기 ▾",menuClose:"메뉴 접기 ▴",rgOpen:"이용 안내 보기 ▾",rgClose:"이용 안내 접기 ▴",
   share:"일행에게 보내기",copied:"링크를 복사했어요. 카톡이나 문자에 붙여넣어 보내주세요.",
   call:"리셉션에 전화하기",note:"체크인 때 안내드린 내용이에요. 변경 사항은 리셉션에 문의해 주세요.<br>야간 비상 문의는 전화만 가능해요.",
   expH:"이용이 끝난 안내예요",expP:"명지각을 찾아주셔서 감사합니다.<br>다음에 또 뵙기를 기다릴게요.",badH:"안내 정보를 찾을 수 없어요",badP:"QR을 다시 찍어 주시거나 리셉션에 문의해 주세요.",
@@ -156,7 +156,7 @@ var T={
   swipe:"← Swipe to see more →",mapH:"Site map",backGate:"Back Gate",mainGate:"Main Gate",anHrs:"24h lounge",saHrs:"Café 11:00–20:00 · Breakfast",you:"Your room",
   guideTitle:"Room Guide",guideSub:"Everything you need during your stay at Myeongjigak.",noteG:"Please contact reception anytime if you have questions.<br>Phone only for late-night emergencies. (WhatsApp available)",
   night:"Entering after 9 PM",nightD:"Sarang-chae is locked after 9:00 PM. Please use the side path next to Sarang-chae or the back gate.",nightPath:"Side path",
-  hrs:"General inquiries 08:00 – 21:00 · Emergencies 24h",laterT:"To be booked by text",laterP:"Please text +82 10 9677 9490 by {d}, 19:00 and we'll book it for you.",menuOpen:"View menu ▾",menuOpenL:"View menu photos & options ▾",menuClose:"Hide menu ▴",rgOpen:"View bathhouse guide ▾",rgClose:"Hide guide ▴",
+  hrs:"General inquiries 08:00 – 21:00 · Emergencies 24h",laterT:"To be booked by text",laterP:"Please text +82 10 9677 9490 by {d}, 19:00 and we'll book it for you.",uH:"Self check-in guide",uD:"Our staff are not on site after 9:00 PM and Sarang-chae is locked. Please follow the steps below to check in.",u1:"Please enter via the <b>side path next to Sarang-chae</b>.",uMap:"Show the side path on the map",u2:"Your card key pouch is hanging on the door handle of room <b>{r}</b>.",u3:"For tomorrow's breakfast, please text +82 10 9677 9490 <b>by 20:00 today</b>.",menuOpen:"View menu ▾",menuOpenL:"View menu photos & options ▾",menuClose:"Hide menu ▴",rgOpen:"View bathhouse guide ▾",rgClose:"Hide guide ▴",
   share:"Send to your companions",copied:"Link copied. Paste it into a message to share.",
   call:"Call reception",note:"This is what we shared at check-in. For any changes, please contact reception.<br>Phone only for late-night emergencies. (WhatsApp available)",
   expH:"This stay has ended",expP:"Thank you for staying at Myeongjigak.<br>We hope to see you again.",badH:"We couldn't find your stay",badP:"Please scan the QR again or ask at reception.",
@@ -196,6 +196,7 @@ function decode(s){
     return o;
   }catch(e){return null}
 }
+function kstToday(){var d=new Date(Date.now()+9*36e5);return d.toISOString().slice(0,10)}
 function addDays(d,n){var a=d.split("-").map(Number),x=new Date(Date.UTC(a[0],a[1]-1,a[2]+n));return x.getUTCFullYear()+"-"+("0"+(x.getUTCMonth()+1)).slice(-2)+"-"+("0"+x.getUTCDate()).slice(-2)}
 function fmt(d){var a=d.split("-").map(Number),x=new Date(Date.UTC(a[0],a[1]-1,a[2])),w=t("wd")[x.getUTCDay()];
   return lang==="ko"?(a[1]+"."+a[2]+" ("+w+")"):(w+", "+x.toLocaleString("en",{month:"short",timeZone:"UTC"})+" "+a[2])}
@@ -288,6 +289,10 @@ function render(){
   h+=tabsHtml(list);
   if(TAB==="stay"){
   var n=Math.round((Date.parse(D.o)-Date.parse(D.i))/864e5), multi=n>1;
+    // 무인 체크인 (21시 이후 도착) — 체크인 당일까지만 보여요
+    var lateBf=D.u&&D.b.some(function(b){return b[1]==="L"&&b[0]===addDays(D.i,1)});
+    if(D.u&&kstToday()<=D.i)h+='<div class="card hl"><div class="row">'+ico("night")+'<div><h3>'+t("uH")+'</h3><p>'+t("uD")+'</p></div></div>'+
+      stepsHtml([t("u1")+'<button class="rg-btn" style="display:block;margin-top:10px" onclick="focusSpace(\'night\');var m=document.getElementById(\'map\');if(m)m.scrollIntoView({behavior:\'smooth\',block:\'center\'})">'+t("uMap")+'</button>',t("u2").replace("{r}",D.r)].concat(lateBf?[t("u3")]:[]))+'</div>';
     h+='<div class="card room"><div class="nm">'+t("room")+'<b>'+D.r+'</b></div><div class="ci"><small>'+t("cin")+'</small><strong>16:00</strong><span>'+fmt(D.i)+'</span></div><div class="arr">→<em>'+t("nights").replace("{n}",n)+'</em></div><div class="ci"><small>'+t("cout")+'</small><strong>11:00</strong><span>'+fmt(D.o)+'</span></div></div>';
     // 련 / 한방
     if(D.h){h+='<div class="card hl"><div class="row">'+ico("heal")+'<div><h3>'+t("heal")+' <em>HERBAL BATH BLEND</em></h3><p class="herbs">'+t("herbs")+'</p><p>'+t("healD")+'</p><button class="rg-btn" onclick="toggleHG(this)">'+t("hgOpen")+'</button></div></div><div class="rg" id="hg">'+healGuide()+'</div></div>'}
@@ -298,7 +303,7 @@ function render(){
     // 조식
     if(D.b&&D.b.length){
       var bl=D.b.map(function(b){var dd=t("morning").replace("{d}",fmt(b[0]));
-        if(b[1]==="L")return '<div class="bf-day"><div class="d">'+dd+'</div><div class="tm">'+t("laterT")+'</div><p class="later-p">'+t("laterP").replace("{d}",fmt(addDays(b[0],-1)))+'</p></div>';
+        if(b[1]==="L")return '<div class="bf-day"><div class="d">'+dd+'</div><div class="tm">'+t("laterT")+'</div><p class="later-p">'+t("laterP").replace("{d}",fmt(addDays(b[0],-1))).replace("19:00",(D.u&&b[0]===addDays(D.i,1))?"20:00":"19:00")+'</p></div>';
         if(!b[1])return '<div class="bf-day"><div class="d">'+dd+'</div><ul><li>'+t("noBf")+'</li></ul></div>';
         return '<div class="bf-day"><div class="d">'+dd+'</div><div class="tm">'+slotTxt(b[1])+'</div><ul>'+(b[2]||[]).map(function(c,i){return '<li>'+t("guest")+' '+(i+1)+' · '+menu(c)+'</li>'}).join("")+'</ul></div>'}).join("");
       h+='<div class="card tap" data-sp="sarang" onclick="focusSpace(\'sarang\')">'+PIN+'<div class="row">'+ico("bf")+'<div style="flex:1"><h3>'+t("bf")+' <em>'+t("bfD")+'</em></h3><div class="bf">'+bl+'</div><button class="rg-btn" onclick="event.stopPropagation();toggleMenu(this)">'+t(D.b.some(function(b){return b[1]==="L"})?"menuOpenL":"menuOpen")+'</button></div></div><div class="rg" id="mn" onclick="event.stopPropagation()">'+menuHtml()+'</div></div>';
